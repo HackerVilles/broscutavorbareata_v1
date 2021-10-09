@@ -1,0 +1,24 @@
+from tkinter import *
+root = Tk()
+root.title("Chatbot")
+def send():
+    send = "You -> "+e.get()
+    txt.insert(END, "n"+send)
+    user = e.get().lower()
+    if(user == "buna"):
+        txt.insert(END, "n" + "Bot -> buna")
+    elif(user == "buna ziua" or user == "buna seara" or user == "buna dimineata"):
+        txt.insert(END, "n" + "Bot -> Salutare")
+    elif(e.get() == "Ce faci?"):
+        txt.insert(END, "n" + "Bot -> Sunt bine!")
+    elif(user == "cum te simit?" or user == "esti ok" or user == "o duc bine"):
+        txt.insert(END, "n" + "Bot -> Minunat cum te pot ajuta?")
+    else:
+        txt.insert(END, "n" + " Bot -> Scuze nu-mi dau seama ce inseamna!" + "\n")
+    e.delete(0, END)
+txt = Text(root)
+txt.grid(row=0, column=0, columnspan=2)
+e = Entry(root, width=100)
+e.grid(row=1, column=0)
+send = Button(root, text="Send", command=send).grid(row=1, column=1)
+root.mainloop()
